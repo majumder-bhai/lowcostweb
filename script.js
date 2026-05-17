@@ -185,6 +185,20 @@ function renderApps() {
 }
 
 async function loadApps() {
+  try {
+    // Try PHP API first
+    const response = await fetch("/api/apps", { cache: "no-store" });
+    if (response.ok) {
+      const data = await response.json();
+      if (Array.isArray(data)) {
+        return data;
+      }
+    }
+  } catch (err) {
+    // Fall back to apps.json
+  }
+  
+  // Fallback to apps.json
   const response = await fetch("/apps.json", { cache: "no-store" });
   if (!response.ok) {
     throw new Error("Could not load app list.");
