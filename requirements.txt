@@ -1,0 +1,14 @@
+# No external dependencies needed
+# Using Python standard library only:
+# - base64
+# - hashlib
+# - hmac
+# - json
+# - os
+# - re
+# - sqlite3
+# - time
+# - datetime
+# - http
+# - pathlib
+# - urllib
